@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 // components
 import FlaskAddress from '../components/flaskip';
 import ButtonComponent from '../components/ButtonComponent';
-import Upload_button from '../components/upload_button';
 import Nav_bar from '../components/Nav_bar';
 
 // styling

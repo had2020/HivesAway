@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';  // Import axios for HTTP requests
 
-function ButtonComponent({ address_var }) {
+function ButtonComponent({ address_var, request_type }) {
     const [dataToSend, setDataToSend] = useState('');  // State for data
 
     const handleClick = async () => {
@@ -10,13 +10,13 @@ function ButtonComponent({ address_var }) {
             return;
         }
         try {
-            const response = await axios.post(`${address_var}/api/data`, {
+            const response = await axios.post(`${address_var, request_type}/api/data`, {
                 data: dataToSend,
             });
             console.log(response.data);
         } catch (error) {
             console.error('Error sending data:', error);
-            console.log(`${address_var}/api/data`);
+            console.log(`${address_var, request_type}/api/data`);
             if (error.response) {
                 console.error('Response:', error.response.data);
             }

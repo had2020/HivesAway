@@ -1,0 +1,10 @@
+.Panel1 {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.small-text {
+    font-size: 11px;
+}

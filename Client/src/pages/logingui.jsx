@@ -2,7 +2,8 @@ import React from 'react';
 
 // components
 import Nav_bar from '../components/Nav_bar';
-import ButtonComponent from '../components/ButtonComponent';
+import UserPassForm from '../components/UserPassForm';
+import Flaskip from '../components/flaskip';
 
 // Styling
 import './styles/Login.css';
@@ -17,8 +18,7 @@ const Tool = () => {
         <div className='Box1'>
             <p className='center-text'>Enter your email and password</p>
             <div className='center-text'>
-                <ButtonComponent></ButtonComponent>
-                <ButtonComponent></ButtonComponent>
+                <UserPassForm address_var={Flaskip()} request_type="login"/>
             </div>
         </div>
        </div>
