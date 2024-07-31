@@ -33,12 +33,15 @@ function UserPassForm({ address_var, request_type }) {
     };
 
     return (
-        <div className="Panel1">
-            <p className='small-text'>Username</p>
-            <input type="text" value1={Username} onChange={handleChange} />
-            <p className='small-text'>Password</p>
-            <input type="text" value2={Password} onChange={handleChange} />
-            <button onClick={handleClick}>Submit</button>
+        <div className='box1'>
+            <div className="Panel1">
+                <p>Enter Your Email And Password</p>
+                <p className='small-text'>Username</p>
+                <input type="text" value1={Username} onChange={handleChange} />
+                <p className='small-text'>Password</p>
+                <input type="text" value2={Password} onChange={handleChange} />
+                <button onClick={handleClick}>Submit</button>
+            </div>
         </div>
     );
 }
