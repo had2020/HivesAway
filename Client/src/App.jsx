@@ -10,8 +10,10 @@ import Home from './pages/Home';
 import Not_Found from './pages/Not_Found';
 import Tool from './pages/Tool';
 import Login from './pages/Login';
-import Signup from './pages/Signup';
 import Contact from './pages/contact';
+import Logingui from './pages/logingui';
+import Signupgui from './pages/signupgui';
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,8 +27,9 @@ function App() {
           <Route path="/tool" element={<Tool />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
           <Route path="/Not_Found" element={<Not_Found />} />
+          <Route path="/logingui" element={<Logingui />} />
+          <Route path="/signupgui" element={<Signupgui />} />
         </Routes>
       </Router>
     </>

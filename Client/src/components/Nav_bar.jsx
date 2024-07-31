@@ -2,8 +2,7 @@ import React from 'react';
 import './styles/Nav_bar.css';
 
 const NavBar = () => {
-  /* ToDO : Make login href show account if logged in */
-  /* in app hub in the other website add a search bar in the middle to search for a solution with my apps with ai */
+  /* ToDO : Make text that says logged in when not and signout when out */
   return (
   <div class="topnav">
     <a class="active" href="/">Home</a>

@@ -18,45 +18,20 @@ const Home = () => {
     <>
       <Nav_bar></Nav_bar>
       <div>
-        <h1 style={{ textAlign: 'center' }}>Smart Expire</h1>
-
-        <div class="box-container">
-
-          <div class="ai-image-expiration-box">  <h2>🤖 The AI Image Expiration Tool</h2>
-            <p>
-              See when your food expires, based off your receipt. <br />
-              Can't remember the expiration date? <br />
-              Try our new list of your expiration dates. <br />
-              See if your food's expiration date is near. <br />
-              And best of all, set up alerts with our app and Chrome extension.
-            </p>
-            <p style={{ textAlign: 'center' }}><a href="/tool">Click here to get started</a></p>
-          </div>
-      
-          <div class="ai-image-expiration-box">  <h2>🤖 The AI Image Expiration Tool</h2>
-            <p>
-              See when your food expires, based off your receipt. <br />
-              Can't remember the expiration date? <br />
-              Try our new list of your expiration dates. <br />
-              See if your food's expiration date is near. <br />
-              And best of all, set up alerts with our app and Chrome extension.
-            </p>
-            <p style={{ textAlign: 'center' }}><a href="/tool">Click here to get started</a></p>
-          </div>
-
-          <div class="ai-image-expiration-box">  <h2>🤖 The AI Image Expiration Tool</h2>
-            <p>
-              See when your food expires, based off your receipt. <br />
-              Can't remember the expiration date? <br />
-              Try our new list of your expiration dates. <br />
-              See if your food's expiration date is near. <br />
-              And best of all, set up alerts with our app and Chrome extension.
-            </p>
-            <p style={{ textAlign: 'center' }}><a href="/tool">Click here to get started</a></p>
-          </div>
-
-        </div>
-
+        <h1 className='AppName'>HivesAway</h1>
+        <p className='AboutText'>Do you have constant issues with Hives? <br /> </p>
+        <p className='AboutText'>Or any other allergy problems? <br /> </p>
+        <p className='AboutText'>It's likely due to something you ate! <br /> </p>
+        <p className='AboutText'>Try using HivesAway to track your diet.</p>
+      </div>
+      <div>
+        <p> Todo put stats here or somthing</p>
+      </div>
+      <div className='Panel1'>
+        <h1 style={{ textAlign: "center" }}>Sign In to give HivesAway a try!</h1>
+      </div>
+      <div className='signupbutton'>
+        <a href='/login'>Sign Up</a>
       </div>
     </>
   );

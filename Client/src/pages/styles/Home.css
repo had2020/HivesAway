@@ -1,45 +1,21 @@
-.box-container {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    margin: 0 auto; 
+.AppName {
+  font-size: 50px;
+  text-align: center;
+  background-color: #333;
+}
+  
+.AboutText {
+  text-align: center;
 }
 
-h1 {
-    text-align: center;
+.Panel1 {
+  background-color: #333;
+  width: 500px;
+  margin: 0 auto;
 }
 
-.ai-image-expiration-box {
-    width: 500px; 
-    height: auto;  
-    background-color: #454545; 
-    border: 1px solid #ddd;  
-    padding: 20px;  
-    border-radius: 5px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    margin: 10px auto; 
-  }
-  
-  .ai-image-expiration-box h2 {
-    margin-bottom: 15px;  
-  }
-  
-  .ai-image-expiration-box p {
-    line-height: 1.5;  
-  }
-  
-  .ai-image-expiration-box a {
-    color: #333;  
-    text-decoration: none; 
-    padding: 5px 10px;  
-    background-color: #ddd; 
-    border: 1px solid #ccc; 
-    border-radius: 3px; 
-  }
-  
-  .ai-image-expiration-box a:hover {
-    background-color: #ccc5; 
-    cursor: pointer; 
-  }
-  
-  
+.signupbutton {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}

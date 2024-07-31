@@ -1,0 +1,32 @@
+.Title {
+    background-color: #333;
+    text-align: center;
+}
+
+.Box1 {
+    width: 500px; 
+    height: 100px;  
+    background-color: #333; 
+    border: 1px solid #838383;  
+    padding: 10px;  
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    margin: 10px auto; 
+}
+
+.link1 {
+    padding-inline: 180px;
+    font-size: 50px;
+    color: white;
+}
+
+.box-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    margin: 200px auto; 
+}
+
+.center-text {
+    text-align: center;
+}
