@@ -1,5 +1,5 @@
 .box1 {
-   /*font-size: 2vw; 
+   /*font-size: 2vw; !! Has problems scaling children !!
     width: 50vw; 
     height: 30vh;  
     background-color: #333; 
@@ -51,6 +51,15 @@
     border-radius: 5px;
 }
 .box1 input[type="password"] {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    box-sizing: border-box; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}
+
+.box1 input[type="text"] {
     width: 100%; 
     padding: 10px; 
     margin-bottom: 10px; 

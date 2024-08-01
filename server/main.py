@@ -24,6 +24,12 @@ def handle_data():
     print(f"Received data from React, in flask: {data}") # log
     return jsonify({'message': 'Data received successfully!'})
 
+@app.route('/api/submit_login', methods=['POST'])
+def receive_data():
+    data = request.get_json() # get data sent from React
+    print(f"Received data from React, in flask: {data}") # log
+    return jsonify({'message': 'Data received successfully!'})
+
 @app.route("/api/login", methods=['POST', 'GET'])
 def handle_login_data():
     data = request.get_json() # get data sent from React

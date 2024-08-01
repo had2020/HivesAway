@@ -17,13 +17,14 @@ function UserPassForm({ address_var, request_type }) {
             return;
         }
         try {
-            const response = await axios.post(`${address_var}/api/data`, {
-                data: Username,
+            const ToSend = String(Username, Password);
+            const response = await axios.post(`${address_var}/api/submit_login`, {
+                data: ToSend,
             });
             console.log(response.data);
         } catch (error) {
             console.error('Error sending data:', error);
-            console.log(`${address_var}/api/data`);
+            console.log(`${address_var}/api/submit_login`);
             if (error.response) {
                 console.error('Response:', error.response.data);
             }
@@ -34,7 +35,7 @@ function UserPassForm({ address_var, request_type }) {
         setUsername(event.target.value1);
         setPassword(event.target.value2);
     };
-
+// <input type="password" value2={Password} onChange={handleChange} />
     return (
         <div className='box1'>
             <div className="Panel1">
@@ -42,7 +43,7 @@ function UserPassForm({ address_var, request_type }) {
                 <p className='small-text'>👤 Username</p>
                 <input type="username" value1={Username} onChange={handleChange} />
                 <p className='small-text'>🔒 Password</p>
-                <input type="password" value2={Password} onChange={handleChange} />
+                <PasswordInput value2={Password} onChange={handleChange}/>
                 <button onClick={handleClick}>Submit</button>
             </div>
         </div>

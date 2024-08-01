@@ -20,7 +20,7 @@ const PasswordInput = () => {
         onChange={handleChange}
       />
       <button onClick={togglePasswordVisibility}>
-        {showPassword ? 'Hide' : 'Show'}
+        {showPassword ? '◎ Hide' : '◉ Show'}
       </button>
     </div>
   );
