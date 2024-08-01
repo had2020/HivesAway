@@ -1,21 +1,60 @@
-.Panel1 {
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    margin: 0 auto;
-}
-
-.small-text {
-    font-size: 11px;
-}
-
 .box1 {
+   /*font-size: 2vw; 
     width: 50vw; 
     height: 30vh;  
     background-color: #333; 
     border: 1px solid #838383;  
     padding: 10px;  
     border-radius: 5px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 5px #0000001a; 
     margin: 10px auto; 
+    box-sizing: border-box; */
+    border-radius: 5px; 
+    background-color: #333; 
+    border: 1px solid #838383;  
+    margin: 10px auto; 
+}
+
+.box1 button {
+    width: 100%; 
+    margin: 10px 0; 
+    padding: 10px;
+    font-size: 1em; 
+    box-sizing: border-box; 
+}
+
+.box1 button {
+    background-color: #555; 
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.box1 button:hover {
+    background-color: #666;
+}
+
+.small-text {
+    font-size: 0.8em; 
+    color: #999;
+    text-align: center;
+}
+
+.box1 input[type="username"] {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    box-sizing: border-box; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}
+.box1 input[type="password"] {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    box-sizing: border-box; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
 }

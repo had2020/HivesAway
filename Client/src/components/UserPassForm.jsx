@@ -4,6 +4,9 @@ import axios from 'axios';  // Import axios for HTTP requests
 // Styles
 import './styles/UserPassForm.css';
 
+// components
+import PasswordInput from './PasswordInput';
+
 function UserPassForm({ address_var, request_type }) {
     const [Username, setUsername] = useState('');  // State username for data
     const [Password, setPassword] = useState('');  // State password for data
@@ -35,11 +38,11 @@ function UserPassForm({ address_var, request_type }) {
     return (
         <div className='box1'>
             <div className="Panel1">
-                <p>Enter Your Email And Password</p>
-                <p className='small-text'>Username</p>
-                <input type="text" value1={Username} onChange={handleChange} />
-                <p className='small-text'>Password</p>
-                <input type="text" value2={Password} onChange={handleChange} />
+                <p style={{ textAlign: "center" }}>Enter Your Username And Password</p>
+                <p className='small-text'>👤 Username</p>
+                <input type="username" value1={Username} onChange={handleChange} />
+                <p className='small-text'>🔒 Password</p>
+                <input type="password" value2={Password} onChange={handleChange} />
                 <button onClick={handleClick}>Submit</button>
             </div>
         </div>
