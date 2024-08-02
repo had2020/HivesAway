@@ -15,7 +15,7 @@ const Tool = () => {
       <h1 className='Title'>HivesAway</h1>
       <h2 className='center-text'>Login Page</h2>
       <div className='box-container'>
-        <UserPassForm address_var={Flaskip()} request_type="login"/>
+        <UserPassForm address_var={Flaskip()} request_type="Login"/>
       </div>
     </div>
   );

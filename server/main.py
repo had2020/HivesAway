@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
-from models import user_login
+from models import user_login, user_signup
 
 app = Flask(__name__)
 #cors = CORS(app, origins='*')
@@ -25,12 +25,19 @@ def handle_data():
     print(f"Received data from React, in flask: {data}") # log
     return jsonify({'message': 'Data received successfully!'})
 
-@app.route('/api/submit_login', methods=['POST'])
+@app.route('/api/submit_Login', methods=['POST'])
 def receive_data():
     data = request.get_json() # get data sent from React
     print(f"Received Login data from React, in flask: {data}") # log
     user_login(data['username'], data['password'])
-    return jsonify({'message': 'Login Data received successfully!'}) # last log for debug
+    return jsonify({'message': 'Login Data received successfully!'}) # send logined status to React and verify it, somehow?
+
+@app.route('/api/submit_Signup', methods=['POST'])
+def receive_data():
+    data = request.get_json() # get data sent from React
+    print(f"Received Signup data from React, in flask: {data}") # log
+    user_signup(data['username'], data['password'])
+    return jsonify({'message': 'Signup Data received successfully!'}) # send logined status to React and verify it, somehow?
     
 if __name__ == "__main__":
     app.run(debug=True, port=8080) # local-debug only

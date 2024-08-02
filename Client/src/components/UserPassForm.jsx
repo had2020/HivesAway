@@ -4,7 +4,7 @@ import axios from 'axios';
 // Styles
 import './styles/UserPassForm.css';
 
-function UserPassForm({ address_var }) {
+function UserPassForm({ address_var, request_type }) {
     const [Username, setUsername] = useState(''); // State for username
     //const [Password, setPassword] = useState(''); // State for password
 
@@ -14,7 +14,7 @@ function UserPassForm({ address_var }) {
             return;
         }
         try {
-            const response = await axios.post(`${address_var}/api/submit_login`, {
+            const response = await axios.post(`${address_var}/api/submit_` + request_type, {
                 username: Username, // Send username
                 password: password, // Send password
             });
@@ -68,7 +68,7 @@ function UserPassForm({ address_var }) {
                         {showPassword ? '◎ Hide' : '◉ Show'}
                     </button>
                 </div>
-                <button onClick={handleClick}>Submit</button>
+                <button onClick={handleClick}>{request_type}</button>
             </div>
         </div>
     );
