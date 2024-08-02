@@ -4,12 +4,9 @@ import axios from 'axios';
 // Styles
 import './styles/UserPassForm.css';
 
-// Components
-import PasswordInput from './PasswordInput';
-
 function UserPassForm({ address_var }) {
     const [Username, setUsername] = useState(''); // State for username
-    const [Password, setPassword] = useState(''); // State for password
+    //const [Password, setPassword] = useState(''); // State for password
 
     const handleClick = async () => {
         if (!address_var) {
@@ -19,7 +16,7 @@ function UserPassForm({ address_var }) {
         try {
             const response = await axios.post(`${address_var}/api/submit_login`, {
                 username: Username, // Send username
-                password: Password, // Send password
+                password: password, // Send password
             });
             console.log(response.data);
         } catch (error) {
@@ -32,13 +29,23 @@ function UserPassForm({ address_var }) {
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
-        console.log('Username:', event.target.value); // Log change
+        //onsole.log('Username:', event.target.value); // Log change
     };
 
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-        console.log('Password:', event.target.value); // Log change
+    // Password Input
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+      
+    const handleChange = (event) => {
+    const newValue = event.target.value; 
+    setPassword(newValue); 
+    //console.log('Current password:', newValue); 
     };
+      
+    const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+    };
+      
 
     return (
         <div className='box1'>
@@ -51,9 +58,17 @@ function UserPassForm({ address_var }) {
                     onChange={handleUsernameChange}
                 />
                 <p className='small-text'>🔒 Password</p>
-                <PasswordInput
-                />
                 <button onClick={handleClick}>Submit</button>
+                <div>
+                    <input
+                        type={showPassword ? 'text' : 'password'}
+                        value={password}
+                        onChange={handleChange}
+                    />
+                    <button onClick={togglePasswordVisibility}>
+                        {showPassword ? '◎ Hide' : '◉ Show'}
+                    </button>
+                </div>
             </div>
         </div>
     );
