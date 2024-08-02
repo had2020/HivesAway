@@ -18,8 +18,8 @@ function UserPassForm({ address_var }) {
         }
         try {
             const response = await axios.post(`${address_var}/api/submit_login`, {
-                username: Username, // Send both username and password if needed
-                password: Password,
+                username: Username, // Send username
+                password: Password, // Send password
             });
             console.log(response.data);
         } catch (error) {
@@ -32,12 +32,12 @@ function UserPassForm({ address_var }) {
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
-        console.log('Username:', event.target.value); // Log username on change
+        console.log('Username:', event.target.value); // Log change
     };
 
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
-        console.log('Password:', event.target.value); // Log password on change
+        console.log('Password:', event.target.value); // Log change
     };
 
     return (
@@ -52,8 +52,6 @@ function UserPassForm({ address_var }) {
                 />
                 <p className='small-text'>🔒 Password</p>
                 <PasswordInput
-                    value={Password}
-                    onChange={handlePasswordChange}
                 />
                 <button onClick={handleClick}>Submit</button>
             </div>
