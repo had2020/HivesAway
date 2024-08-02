@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import axios from 'axios';  // Import axios for HTTP requests
+import axios from 'axios';
 
 // Styles
 import './styles/UserPassForm.css';
 
-// components
+// Components
 import PasswordInput from './PasswordInput';
 
-function UserPassForm({ address_var, request_type }) {
-    const [Username, setUsername] = useState('');  // State username for data
-    const [Password, setPassword] = useState('');  // State password for data
+function UserPassForm({ address_var }) {
+    const [Username, setUsername] = useState(''); // State for username
+    const [Password, setPassword] = useState(''); // State for password
 
     const handleClick = async () => {
         if (!address_var) {
@@ -17,33 +17,44 @@ function UserPassForm({ address_var, request_type }) {
             return;
         }
         try {
-            const ToSend = String(Username, Password);
             const response = await axios.post(`${address_var}/api/submit_login`, {
-                data: ToSend,
+                username: Username, // Send both username and password if needed
+                password: Password,
             });
             console.log(response.data);
         } catch (error) {
             console.error('Error sending data:', error);
-            console.log(`${address_var}/api/submit_login`);
             if (error.response) {
                 console.error('Response:', error.response.data);
             }
         }
     };
 
-    const handleChange = (event) => {
-        setUsername(event.target.value1);
-        setPassword(event.target.value2);
+    const handleUsernameChange = (event) => {
+        setUsername(event.target.value);
+        console.log('Username:', event.target.value); // Log username on change
     };
-// <input type="password" value2={Password} onChange={handleChange} />
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+        console.log('Password:', event.target.value); // Log password on change
+    };
+
     return (
         <div className='box1'>
             <div className="Panel1">
                 <p style={{ textAlign: "center" }}>Enter Your Username And Password</p>
                 <p className='small-text'>👤 Username</p>
-                <input type="username" value1={Username} onChange={handleChange} />
+                <input
+                    type="text"
+                    value={Username}
+                    onChange={handleUsernameChange}
+                />
                 <p className='small-text'>🔒 Password</p>
-                <PasswordInput value2={Password} onChange={handleChange}/>
+                <PasswordInput
+                    value={Password}
+                    onChange={handlePasswordChange}
+                />
                 <button onClick={handleClick}>Submit</button>
             </div>
         </div>

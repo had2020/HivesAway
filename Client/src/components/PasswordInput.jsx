@@ -5,7 +5,8 @@ const PasswordInput = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (event) => {
-    setPassword(event.target.value);
+    const newValue = event.target.value; // Store the new value
+    setPassword(newValue); // Update the state
   };
 
   const togglePasswordVisibility = () => {
