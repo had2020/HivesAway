@@ -30,3 +30,8 @@
 .rightbutton {
   float: right;
 }
+
+.verticalLine {
+  border-left: 2px solid #242424; 
+  height: 25px; 
+}

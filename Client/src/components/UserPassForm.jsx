@@ -5,6 +5,7 @@ import axios from 'axios';
 import './styles/UserPassForm.css';
 
 function UserPassForm({ address_var, request_type }) {
+    let log_status = false;
     const [Username, setUsername] = useState(''); // State for username
     //const [Password, setPassword] = useState(''); // State for password
 
@@ -19,6 +20,20 @@ function UserPassForm({ address_var, request_type }) {
                 password: password, // Send password
             });
             console.log(response.data);
+
+            // check response data
+            if (response.data == "yes user")
+                log_status = true;
+                console.log(log_status);
+            if (response.data == "no user")
+                log_status = false;
+            if (response.data == "wrong password")
+                log_status = false;
+            if (response.data == "user already exists")
+                log_status = false;
+            if (response.data == "already user")
+                log_status = false; 
+    
         } catch (error) {
             console.error('Error sending data:', error);
             if (error.response) {
