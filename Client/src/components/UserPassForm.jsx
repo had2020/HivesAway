@@ -45,7 +45,6 @@ function UserPassForm({ address_var, request_type }) {
     const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
     };
-      
 
     return (
         <div className='box1'>
