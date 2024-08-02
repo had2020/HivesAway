@@ -4,6 +4,10 @@ import axios from 'axios';
 // Styles
 import './styles/UserPassForm.css';
 
+// Components
+import CookieTest from './CookieTest';
+import AccountCookies from './AccountCookies';
+
 function UserPassForm({ address_var, request_type }) {
     let log_status = false;
     const [Username, setUsername] = useState(''); // State for username
@@ -83,6 +87,8 @@ function UserPassForm({ address_var, request_type }) {
                     </button>
                 </div>
                 <button onClick={handleClick}>{request_type}</button>
+                <CookieTest />
+                <AccountCookies Username={Username} Password={password}/>
             </div>
         </div>
     );
