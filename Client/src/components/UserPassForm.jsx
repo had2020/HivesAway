@@ -58,7 +58,6 @@ function UserPassForm({ address_var }) {
                     onChange={handleUsernameChange}
                 />
                 <p className='small-text'>🔒 Password</p>
-                <button onClick={handleClick}>Submit</button>
                 <div>
                     <input
                         type={showPassword ? 'text' : 'password'}
@@ -69,6 +68,7 @@ function UserPassForm({ address_var }) {
                         {showPassword ? '◎ Hide' : '◉ Show'}
                     </button>
                 </div>
+                <button onClick={handleClick}>Submit</button>
             </div>
         </div>
     );
