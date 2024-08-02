@@ -1,31 +1,37 @@
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 
-function CookieTest({Username, Password}) {
-  const [cookieValue, setCookieValue] = useState(Cookies.get('user') || '');
+function CookieTest({Username, Password, log_status}) {
+  const [cookieValue, setCookieValue] = useState(Cookies.get('username') || '');
+  const [cookieValue2, setCookieValue2] = useState(Cookies.get('password') || '');
 
   const handleSetCookie = () => {
-    Cookies.set('user', {Username, Password}, { expires: 7 });
-    setCookieValue('Username');
-    console.log("worked")
+    Cookies.set('username', 'username', { expires: 180 });
+    Cookies.set('password', 'password', { expires: 180 });
+    setCookieValue(Username);
+    setCookieValue2(Password);
   };
 
   const handleGetCookie = () => {
-    const user = Cookies.get('user');
+    const user = Cookies.get('username');
     setCookieValue(user);
   };
 
   const handleRemoveCookie = () => {
-    Cookies.remove('user');
+    Cookies.remove('username');
     setCookieValue('');
   };
 
+  // Set cookie only if log_status is true
+  if (log_status == true) {
+    handleSetCookie();
+    console.log("Cookie set");
+  }
+
   return (
     <div>
-      <button onClick={handleSetCookie}>Set Cookie</button>
-      <button onClick={handleGetCookie}>Get Cookie</button>
-      <button onClick={handleRemoveCookie}>Remove Cookie</button>
       {cookieValue}
+      {cookieValue2}
     </div>
   );
 }

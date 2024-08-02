@@ -5,7 +5,6 @@ import axios from 'axios';
 import './styles/UserPassForm.css';
 
 // Components
-import CookieTest from './CookieTest';
 import AccountCookies from './AccountCookies';
 
 function UserPassForm({ address_var, request_type }) {
@@ -23,12 +22,11 @@ function UserPassForm({ address_var, request_type }) {
                 username: Username, // Send username
                 password: password, // Send password
             });
-            console.log(response.data);
+            console.log("Response:", response.data);
 
             // check response data
             if (response.data == "yes user")
                 log_status = true;
-                console.log(log_status);
             if (response.data == "no user")
                 log_status = false;
             if (response.data == "wrong password")
@@ -87,8 +85,7 @@ function UserPassForm({ address_var, request_type }) {
                     </button>
                 </div>
                 <button onClick={handleClick}>{request_type}</button>
-                <CookieTest />
-                <AccountCookies Username={Username} Password={password}/>
+                <AccountCookies Username={Username} Password={password} log_status={log_status}/>
             </div>
         </div>
     );
