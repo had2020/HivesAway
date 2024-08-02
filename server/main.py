@@ -25,15 +25,15 @@ def handle_data():
     print(f"Received data from React, in flask: {data}") # log
     return jsonify({'message': 'Data received successfully!'})
 
-@app.route('/api/submit_Login', methods=['POST'])
-def receive_data():
+@app.route('/api/submitLogin', methods=['POST'])
+def get_login_data():
     data = request.get_json() # get data sent from React
     print(f"Received Login data from React, in flask: {data}") # log
     user_login(data['username'], data['password'])
     return jsonify({'message': 'Login Data received successfully!'}) # send logined status to React and verify it, somehow?
 
-@app.route('/api/submit_Signup', methods=['POST'])
-def receive_data():
+@app.route('/api/submitSignup', methods=['POST'])
+def get_signup_data():
     data = request.get_json() # get data sent from React
     print(f"Received Signup data from React, in flask: {data}") # log
     user_signup(data['username'], data['password'])

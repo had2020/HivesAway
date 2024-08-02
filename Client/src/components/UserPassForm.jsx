@@ -14,7 +14,7 @@ function UserPassForm({ address_var, request_type }) {
             return;
         }
         try {
-            const response = await axios.post(`${address_var}/api/submit_` + request_type, {
+            const response = await axios.post(`${address_var}/api/submit${request_type}`, {
                 username: Username, // Send username
                 password: password, // Send password
             });
