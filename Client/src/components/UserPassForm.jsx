@@ -85,7 +85,7 @@ function UserPassForm({ address_var, request_type }) {
                     </button>
                 </div>
                 <button onClick={handleClick}>{request_type}</button>
-                <AccountCookies Username={Username} Password={password} log_status={log_status}/>
+                <AccountCookies Username={Username} Password={password}/>
             </div>
         </div>
     );
