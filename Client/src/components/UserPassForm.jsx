@@ -12,6 +12,8 @@ function UserPassForm({ address_var, request_type }) {
     const [Username, setUsername] = useState(''); // State for username
     //const [Password, setPassword] = useState(''); // State for password
 
+    const [showPanel, setShowPanel] = useState(true);
+
     const handleClick = async () => {
         if (!address_var) {
             console.error('Address variable is null or undefined');
@@ -27,6 +29,7 @@ function UserPassForm({ address_var, request_type }) {
             // check response data
             if (response.data == "yes user")
                 log_status = true;
+                window.location.href = "new_page.html";
             if (response.data == "no user")
                 log_status = false;
             if (response.data == "wrong password")
@@ -65,28 +68,33 @@ function UserPassForm({ address_var, request_type }) {
 
     return (
         <div className='box1'>
-            <div className="Panel1">
-                <p style={{ textAlign: "center" }}>Enter Your Username And Password</p>
-                <p className='small-text'>👤 Username</p>
-                <input
-                    type="text"
-                    value={Username}
-                    onChange={handleUsernameChange}
-                />
-                <p className='small-text'>🔒 Password</p>
-                <div>
+            {showPanel && (
+                <div className="Panel1">
+                    <p style={{ textAlign: "center" }}>Enter Your Username And Password</p>
+                    <p className='small-text'>👤 Username</p>
                     <input
-                        type={showPassword ? 'text' : 'password'}
-                        value={password}
-                        onChange={handleChange}
+                        type="text"
+                        value={Username}
+                        onChange={handleUsernameChange}
                     />
-                    <button onClick={togglePasswordVisibility}>
-                        {showPassword ? '◎ Hide' : '◉ Show'}
-                    </button>
+                    <p className='small-text'>🔒 Password</p>
+                    <div>
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            value={password}
+                            onChange={handleChange}
+                        />
+                        <button onClick={togglePasswordVisibility}>
+                            {showPassword ? '◎ Hide' : '◉ Show'}
+                        </button>
+                    </div>
+                    <button onClick={handleClick}>{request_type}</button>
+                    <AccountCookies Username={Username} Password={password}/>
                 </div>
-                <button onClick={handleClick}>{request_type}</button>
-                <AccountCookies Username={Username} Password={password}/>
-            </div>
+            )}
+            <button onClick={() => setShowPanel(!showPanel)}>
+                {showPanel ? 'Hide Panel' : 'Show Panel'}
+            </button>
         </div>
     );
 }
