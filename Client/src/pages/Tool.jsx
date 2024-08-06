@@ -7,8 +7,8 @@ const Tool = () => {
   return (
     <div>
       <Nav_bar></Nav_bar>
-      <h1>Blank page!</h1>
-      <p>This is a blank page, for the tool.</p>
+      <h1>Tool page!</h1>
+      <p>Todo make hive tracker here!</p>
     </div>
   );
 };
