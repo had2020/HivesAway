@@ -29,15 +29,19 @@ def handle_data():
 def get_login_data():
     data = request.get_json() # get data sent from React
     print(f"Received Login data from React, in flask: {data}") # log
-    log_status =user_login(data['username'], data['password'])
-    return jsonify({'message': log_status}) # send logined status to React and verify it, somehow?
+    log_status = user_login(data['username'], data['password'])
+    print("login status: ", log_status)
+    response = log_status
+    return jsonify(response)
 
 @app.route('/api/submitSignup', methods=['POST'])
 def get_signup_data():
     data = request.get_json() # get data sent from React
     print(f"Received Signup data from React, in flask: {data}") # log
     log_status = user_signup(data['username'], data['password'])
-    return jsonify({'message': log_status}) # send logined status to React and verify it, somehow?
+    print("login status: ", log_status)
+    response = log_status
+    return jsonify(response) 
     
 if __name__ == "__main__":
     app.run(debug=True, port=8080) # local-debug only
