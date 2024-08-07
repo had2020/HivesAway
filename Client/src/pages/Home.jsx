@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom';
 
 // components
 import FlaskAddress from '../components/flaskip';
-import ButtonComponent from '../components/ButtonComponent';
 import Nav_bar from '../components/Nav_bar';
 
 // styling
 import './styles/Home.css';
 const Home = () => {
   const flaskurl = FlaskAddress(); // adding global address for flask
-  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -24,13 +22,20 @@ const Home = () => {
         <p className='AboutText'>Try using HivesAway to track your diet.</p>
       </div>
       <div>
-        <p> Todo put stats here or somthing</p>
+        <p><strong>Developmental Todo List</strong> for HivesAway</p>
+        <ul>
+          <li>Todo put stats here or somthin, or some pictures of the app nicely</li>
+          <li>Todo make electron mobile app for mobile app usag</li>
+          <li>Todo make chrome extension for app</li>
+          <li>Todo make list of what hives away can do</li>
+          <li>maybe make the homepage use a grid layout of pictures, captions, text, animations</li>
+        </ul>
       </div>
       <div className='Panel1'>
         <h1 style={{ textAlign: "center" }}>Sign In to give HivesAway a try!</h1>
       </div>
       <div className='signupbutton'>
-        <a href='/login'>Sign Up</a>
+        <a href='/login'>Signup or Login</a>
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // Styles
@@ -9,11 +9,39 @@ import AccountCookies from './AccountCookies';
 
 // TODO: ENDING BUGS
 function UserPassForm({ address_var, request_type }) {
+    const [signed_in, setSigned_In] = useState('');
     const [response_string, setResponseString] = useState('');
     const [error_message, setErrorMessage] = useState('');
-    let log_status = false;
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [Username, setUsername] = useState(''); // State for username
     //const [Password, setPassword] = useState(''); // State for password
+
+    const handleLogin = (response_string) => {
+        //console.log(JSON.stringify(response_string)); //Testing only!
+        // check response data
+        if (response_string === 'yes user') {
+            setIsLoggedIn(true);
+            //window.location.href = "/tool";
+            setSigned_In(true);
+        } else if (response_string === "no user") {
+            setIsLoggedIn(false);
+            setErrorMessage("💁 User does not exist");
+        } else if (response_string === "wrong password") {
+            setIsLoggedIn(false);
+            setErrorMessage("🙈 Wrong password");
+        } else if (response_string === "already user") {
+            setIsLoggedIn(false); 
+            setErrorMessage("🏷️ Username already exists");
+        } else if (response_string === "created user") {
+            setIsLoggedIn(true);
+            window.location.href = "/tool";
+            setSigned_In(true);
+        }
+    };    
+
+    useEffect(() => {
+        handleLogin(response_string);
+    }, [response_string]);
 
     const handleClick = async () => {
         if (!address_var) {
@@ -26,34 +54,9 @@ function UserPassForm({ address_var, request_type }) {
                 password: password, // Send password
             });
 
-            // Todo: fix the first response being ethier "" or unchanged. For now it runs 2x
-            handleLogin();
-            setTimeout(handleLogin, 1000);
+            setResponseString(response.data); // convert response to string?
             handleLogin();
 
-            function handleLogin() {
-                setResponseString(response.data); // convert response to string?
-                //console.log(JSON.stringify(response_string)); //Testing only!
-                
-                // check response data
-                if (response_string == 'yes user') {
-                    log_status = true;
-                    window.location.href = "/tool";
-                }
-                if (response_string == "no user") {
-                    log_status = false;
-                    setErrorMessage("💁 User does not exist")
-                }
-                if (response_string == "wrong password") {
-                    log_status = false;
-                    setErrorMessage("🙈 Wrong password")
-                }
-                if (response_string == "already user") {
-                    log_status = false; 
-                    setErrorMessage("🏷️ Username already exists")
-                }
-            }
-    
         } catch (error) {
             console.error('Error sending data:', error);
             if (error.response) {
@@ -106,6 +109,7 @@ function UserPassForm({ address_var, request_type }) {
                    <AccountCookies Username={Username} Password={password}/>
                    <p className='small-text'>{error_message}</p>
             </div>
+            {log_status}
         </div>
     );
 }

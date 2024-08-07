@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import viteLogo from '/vite.svg'//Todo change all this later
 import './App.css'
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
