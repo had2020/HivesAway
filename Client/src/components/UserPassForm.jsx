@@ -109,7 +109,6 @@ function UserPassForm({ address_var, request_type }) {
                    <AccountCookies Username={Username} Password={password}/>
                    <p className='small-text'>{error_message}</p>
             </div>
-            {log_status}
         </div>
     );
 }
