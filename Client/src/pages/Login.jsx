@@ -1,8 +1,5 @@
 import React from 'react';
 
-// Components
-import Nav_bar from '../components/Nav_bar';
-
 // Styling
 import './styles/Login.css';
 
@@ -10,7 +7,6 @@ import './styles/Login.css';
 const Login = () => {
   return (
     <div>
-      <Nav_bar></Nav_bar>
       <h1 className='Title'>HivesAway</h1>
       <div className='box-container'>
         <div className='Box1'>

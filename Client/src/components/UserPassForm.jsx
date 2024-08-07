@@ -8,34 +8,31 @@ import './styles/UserPassForm.css';
 import AccountCookies from './AccountCookies';
 
 // TODO: ENDING BUGS
-function UserPassForm({ address_var, request_type }) {
-    const [signed_in, setSigned_In] = useState('');
+function UserPassForm(props) {
     const [response_string, setResponseString] = useState('');
     const [error_message, setErrorMessage] = useState('');
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [Username, setUsername] = useState(''); // State for username
     //const [Password, setPassword] = useState(''); // State for password
+
+    const submit_login = () => {
+        props.onSubmit(Username + ":" + password);
+    };
 
     const handleLogin = (response_string) => {
         //console.log(JSON.stringify(response_string)); //Testing only!
         // check response data
         if (response_string === 'yes user') {
-            setIsLoggedIn(true);
-            //window.location.href = "/tool";
-            setSigned_In(true);
+            window.location.href = "/tool";
+            submit_login();
         } else if (response_string === "no user") {
-            setIsLoggedIn(false);
             setErrorMessage("💁 User does not exist");
         } else if (response_string === "wrong password") {
-            setIsLoggedIn(false);
             setErrorMessage("🙈 Wrong password");
         } else if (response_string === "already user") {
-            setIsLoggedIn(false); 
             setErrorMessage("🏷️ Username already exists");
         } else if (response_string === "created user") {
-            setIsLoggedIn(true);
             window.location.href = "/tool";
-            setSigned_In(true);
+            submit_login();
         }
     };    
 
@@ -44,12 +41,12 @@ function UserPassForm({ address_var, request_type }) {
     }, [response_string]);
 
     const handleClick = async () => {
-        if (!address_var) {
+        if (!props.address_var) {
             console.error('Address variable is null or undefined');
             return;
         }
         try {
-            const response = await axios.post(`${address_var}/api/submit${request_type}`, {
+            const response = await axios.post(`${props.address_var}/api/submit${props.request_type}`, {
                 username: Username, // Send username
                 password: password, // Send password
             });
@@ -105,7 +102,7 @@ function UserPassForm({ address_var, request_type }) {
                           {showPassword ? '◎ Hide' : '◉ Show'}
                       </button>
                   </div>
-                  <button onClick={handleClick}>{request_type}</button>
+                  <button onClick={handleClick}>{props.request_type}</button>
                    <AccountCookies Username={Username} Password={password}/>
                    <p className='small-text'>{error_message}</p>
             </div>

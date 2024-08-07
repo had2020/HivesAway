@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 // components
 import FlaskAddress from '../components/flaskip';
-import Nav_bar from '../components/Nav_bar';
 
 // styling
 import './styles/Home.css';
@@ -13,7 +12,6 @@ const Home = () => {
 
   return (
     <>
-      <Nav_bar></Nav_bar>
       <div>
         <h1 className='AppName'>HivesAway</h1>
         <p className='AboutText'>Do you have constant issues with Hives? <br /> </p>

@@ -14,13 +14,27 @@ import Contact from './pages/contact';
 import Logingui from './pages/logingui';
 import Signupgui from './pages/signupgui';
 
+// components
+import Nav_bar from './components/Nav_bar';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [array, setArray] = useState([]);
+  const [account, setAccount] = useState('');
+
+  // save current account
+  const save_current_account = (data) => {
+    setAccount(data);
+    sessionStorage.setItem("account", account);
+  }
+
+  const grab_account = () => {
+    setAccount(sessionStorage.getItem("account"));
+  }
 
   return (
     <>
+      <h1>Current Account {account}</h1>
+      <button onClick={grab_account}>Grab Account</button>
+      <Nav_bar />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -28,8 +42,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Not_Found" element={<Not_Found />} />
-          <Route path="/logingui" element={<Logingui />} />
-          <Route path="/signupgui" element={<Signupgui />} />
+          <Route path="/logingui" element={<Logingui onUplift={save_current_account}/>} />
+          <Route path="/signupgui" element={<Signupgui onUplift={save_current_account}/>} />
         </Routes>
       </Router>
     </>
