@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 // pages
 import Home from './pages/Home';
@@ -27,8 +28,16 @@ function App() {
   }
 
   const grab_account = () => {
-    setAccount(sessionStorage.getItem("account"));
+    account = setAccount(sessionStorage.getItem("account"));
+    //handleGetCookie();
   }
+
+  const handleGetCookie = () => {
+    const user = Cookies.get('username');
+    setCookieValue(user);
+    const pass = Cookies.get('password');
+    setCookieValue2(pass);
+  };
 
   return (
     <>
