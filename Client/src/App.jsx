@@ -19,17 +19,40 @@ import Signupgui from './pages/signupgui';
 import Nav_bar from './components/Nav_bar';
 
 function App() {
-  const [account, setAccount] = useState('');
+  // session state
+  let sessionUser = '';
+  let sessionPass = '';
+  const [sessionUser1, setSessionUser1] = useState('');
+  const [sessionPass1, setSessionPass1] = useState('');
+
+  // account state
+  let [account, setAccount] = useState('');
+  let let_account = '';
+
+  // cookies
+  const [cookieValue, setCookieValue] = useState('');
+  const [cookieValue2, setCookieValue2] = useState('');
 
   // save current account
   const save_current_account = (data) => {
     setAccount(data);
-    sessionStorage.setItem("account", account);
+    sessionStorage.setItem("account", let_account);
   }
 
   const grab_account = () => {
+    console.log("grab account")
     account = setAccount(sessionStorage.getItem("account"));
-    //handleGetCookie();
+    console.log("current account: ",let_account);
+    handleGetCookie();
+    grab_current_session_account();
+  }
+
+  const grab_current_session_account = () => {
+    sessionUser = sessionStorage.getItem("Username");
+    sessionPass = sessionStorage.getItem("Password");
+    console.log("Current session: ", sessionUser, sessionPass);
+    setSessionUser1(sessionUser);
+    setSessionPass1(sessionPass);
   }
 
   const handleGetCookie = () => {
@@ -37,13 +60,23 @@ function App() {
     setCookieValue(user);
     const pass = Cookies.get('password');
     setCookieValue2(pass);
+    console.log("Current cookie: ", user, pass);
   };
 
+  // Runtime code
+  useEffect(() => {
+    grab_account();
+  }, []);
+
+  //debug return code for cookie and session tests
+  //return <h1>Current Account: cookie: {cookieValue} {cookieValue2} current session: {sessionUser} {sessionPass}</h1>
+  //<button onClick={grab_account}>Grab Account</button>
+
+
+  //TODO ADD CURRENT COOKIE FOR LOGIN
   return (
     <>
-      <h1>Current Account {account}</h1>
-      <button onClick={grab_account}>Grab Account</button>
-      <Nav_bar />
+      <Nav_bar username={sessionUser1} password={sessionPass1}/>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

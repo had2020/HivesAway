@@ -18,10 +18,18 @@ function UserPassForm(props) {
         props.onSubmit(Username + ":" + password);
     };
 
+    const save_session = (Current_pass, Current_user) => {
+        //console.log("Current session: ", Current_user, Current_pass); debug
+        sessionStorage.setItem('Username', Current_user);
+        sessionStorage.setItem('Password', Current_pass);
+        //console.log(sessionStorage.getItem('Username'), sessionStorage.getItem('Password')); debug
+    };
+
     const handleLogin = (response_string) => {
         //console.log(JSON.stringify(response_string)); //Testing only!
         // check response data
         if (response_string === 'yes user') {
+            save_session(password, Username);
             window.location.href = "/tool";
             submit_login();
         } else if (response_string === "no user") {
@@ -31,6 +39,7 @@ function UserPassForm(props) {
         } else if (response_string === "already user") {
             setErrorMessage("🏷️ Username already exists");
         } else if (response_string === "created user") {
+            save_session(password, Username);
             window.location.href = "/tool";
             submit_login();
         }
