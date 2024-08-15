@@ -2,17 +2,17 @@
 .topnav {
   background-color: #333;
   overflow: hidden;
+  display: flex; /* Add flexbox for horizontal layout */
+  justify-content: space-between; /* Distribute space between elements */
 }
 
 /* style links inside the navigation bar */
 .topnav a {
-  float: left;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-  float: 'right'
 }
 
 /* color of links on hover */
@@ -28,10 +28,19 @@
 }
 
 .rightbutton {
-  float: right;
+  display: flex; 
 }
 
 .verticalLine {
   border-left: 2px solid #242424; 
   height: 25px; 
+}
+
+.username {
+  background-color: #333;
+  color: white;
+}
+
+.leftbutton {
+  display: flex; 
 }
