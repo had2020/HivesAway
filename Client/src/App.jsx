@@ -28,6 +28,9 @@ function App() {
   // account state
   let [account, setAccount] = useState('');
   let let_account = '';
+  const [logined, setLogined] = useState(false);
+  const [currentpass, setCurrentPass] = useState('');
+  const [currentuser, setCurrentUser] = useState('');
 
   // cookies
   const [cookieValue, setCookieValue] = useState('');
@@ -63,20 +66,38 @@ function App() {
     console.log("Current cookie: ", user, pass);
   };
 
-  // Runtime code
-  useEffect(() => {
-    grab_account();
-  }, []);
-
-  //debug return code for cookie and session tests
-  //return <h1>Current Account: cookie: {cookieValue} {cookieValue2} current session: {sessionUser} {sessionPass}</h1>
-  //<button onClick={grab_account}>Grab Account</button>
-
 
   //TODO ADD CURRENT COOKIE FOR LOGIN
+  const vaildate_user = () => {
+    if (sessionUser1 !== null && sessionPass1 !== null && cookieValue !== null && cookieValue2 !== null) {
+      if (vaildate_user_fields(sessionUser1, sessionPass1) && vaildate_user_fields(cookieValue, cookieValue2)) {
+        setCurrentUser(sessionUser1);
+        setCurrentPass(sessionPass1);
+        setLogined(true);
+      } else if (vaildate_user_fields(cookieValue, cookieValue2)) {
+        setCurrentUser(cookieValue);
+        setCurrentPass(cookieValue2);
+        setLogined(true);
+      }
+    }
+  };
+
+  const vaildate_user_fields = (field1,field2) => {
+    if (field1 === '' || field2 === '') {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  useEffect(() => {
+    grab_account();
+    vaildate_user();
+  }, []);
+
   return (
     <>
-      <Nav_bar username={sessionUser1} password={sessionPass1}/>
+      <Nav_bar logined={logined} username={sessionUser1}/>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
