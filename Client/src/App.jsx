@@ -14,9 +14,11 @@ import Login from './pages/Login';
 import Contact from './pages/contact';
 import Logingui from './pages/logingui';
 import Signupgui from './pages/signupgui';
+import logout from './pages/logout';
 
 // components
 import Nav_bar from './components/Nav_bar';
+import Logout from './pages/logout';
 
 function App() {
   // session state
@@ -95,9 +97,14 @@ function App() {
     vaildate_user();
   }, []);
 
+  const OnLogOut = () => {
+    console.log("logout function updated: ", logined);
+    setLogined(false);
+  }
+
   return (
     <>
-      <Nav_bar logined={logined} username={sessionUser1}/>
+      <Nav_bar logined={logined} username={currentuser}/>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -107,6 +114,7 @@ function App() {
           <Route path="/Not_Found" element={<Not_Found />} />
           <Route path="/logingui" element={<Logingui onUplift={save_current_account}/>} />
           <Route path="/signupgui" element={<Signupgui onUplift={save_current_account}/>} />
+          <Route path="/logout" element={<Logout OnLogOut={OnLogOut}/>} />
         </Routes>
       </Router>
     </>

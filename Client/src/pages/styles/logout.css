@@ -1,34 +1,30 @@
-.box1 {
-     border-radius: 5px; 
-     background-color: #333; 
-     border: 1px solid #838383;  
-     margin: 10px auto; 
- }
- 
- .box1 button {
-     width: 100%; 
-     margin: 10px 0; 
-     padding: 10px;
-     font-size: 1em; 
-     box-sizing: border-box; 
- }
- 
- .box1 button {
-     background-color: #555; 
-     color: #fff; 
-     border: none; 
-     border-radius: 5px; 
-     cursor: pointer;
-     transition: background-color 0.3s ease;
- }
- 
- .box1 button:hover {
-     background-color: #666;
- }
- 
- .small-text {
-     font-size: 0.8em; 
-     color: #999;
-     text-align: center;
- }
- 
+.container { 
+    display: flex;
+    align-items: center;
+    height: 100vh; 
+  }
+  
+  .box1 {
+    border-radius: 5px; 
+    background-color: #333; 
+    border: 1px solid #838383;  
+    margin: 0 auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  
+  .box1 button {
+    display: block;
+    width: 100%; 
+    padding: 10px; 
+    font-size: 5em; 
+    box-sizing: border-box; 
+    background-color: #555; 
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }

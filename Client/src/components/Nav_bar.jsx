@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react'
 import './styles/Nav_bar.css';
 
+// this component shows props use very well 
 const NavBar = (props) => {
   const [logined, setLogined] = useState(false);
 
   useEffect(() => {
     setLogined(props.logined)
   }, [props.logined])
+
+  //Todo fix this so it updates
+
+  const check_login_status = () => {
+    setLogined(props.logined)
+  }
   
   return (
   <div className="topnav">
