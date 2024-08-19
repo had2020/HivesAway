@@ -28,7 +28,11 @@ const Logout = ({ OnLogOut }) => {
           <h1 className='big-text'>👋 You have been logged out</h1>
         </>
         ) : null}
+        {!loggged_out ? (
+        <>
           <button className='box1 button' onClick={Logout}>Logout</button>
+        </>
+        ) : null}
           <a href='/'>Back To Home</a>
       </div>
     </div>

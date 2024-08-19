@@ -7,7 +7,7 @@ import FlaskAddress from '../components/flaskip';
 
 // styling
 import './styles/Home.css';
-const Home = () => {
+const Home = ({logined}) => {
   const flaskurl = FlaskAddress(); // adding global address for flask
 
   return (
@@ -35,7 +35,8 @@ const Home = () => {
         <h1 style={{ textAlign: "center" }}>Sign In to give HivesAway a try!</h1>
       </div>
       <div className='signupbutton'>
-        <a href='/login'>Signup or Login</a>
+        <p>{logined ? "Already logged in" : "Not logged in"}</p>
+        {logined ? <a href='/logout'>Logout</a> : <a href='/login'>Signup or Login</a>}
       </div>
     </>
   );

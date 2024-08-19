@@ -107,7 +107,7 @@ function App() {
       <Nav_bar logined={logined} username={currentuser}/>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home logined={logined}/>} />
           <Route path="/tool" element={<Tool />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />

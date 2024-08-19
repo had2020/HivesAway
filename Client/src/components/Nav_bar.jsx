@@ -26,7 +26,7 @@ const NavBar = (props) => {
       <p className='username'>Welcome, {props.username}!</p>
     </div>
     <div className='rightbutton'>
-    {logined ? (
+    {!logined ? (
     <>
       <a href="/logingui">Login</a>
       <a href="/signupgui">Signup</a>
