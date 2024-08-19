@@ -28,6 +28,7 @@ const Home = () => {
           <li>Todo make list of what hives away can do</li>
           <li>maybe make the homepage use a grid layout of pictures, captions, text, animations</li>
           <li>make the not found 404 page</li>
+          <li>remove sign in option when signed in</li>
         </ul>
       </div>
       <div className='Panel1'>
