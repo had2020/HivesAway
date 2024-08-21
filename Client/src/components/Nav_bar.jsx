@@ -1,19 +1,22 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, forwardRef, useImperativeHandle } from 'react'
 import './styles/Nav_bar.css';
 
 // this component shows props use very well 
-const NavBar = (props) => {
+const NavBar = forwardRef((props, ref) => {
+
   const [logined, setLogined] = useState(false);
+  
+  useImperativeHandle(ref, () => ({
+    childMethod() {
+      setLogined(props.logined);
+      console.log("Nav Bar updated!");
+      console.log("User: ", props.username);
+    },
+  }));
 
   useEffect(() => {
     setLogined(props.logined)
   }, [props.logined])
-
-  //Todo fix this so it updates
-
-  const check_login_status = () => {
-    setLogined(props.logined)
-  }
   
   return (
   <div className="topnav">
@@ -36,6 +39,6 @@ const NavBar = (props) => {
     </div>
   </div>
   );
-};
+});
 
 export default NavBar;

@@ -101,17 +101,17 @@ function UserPassForm(props) {
                      onChange={handleUsernameChange}
                  />
                   <p className='small-text'>🔒 Password</p>
-                  <div>
-                      <input
-                         type={showPassword ? 'text' : 'password'}
-                         value={password}
-                         onChange={handleChange}
-                     />
-                      <button onClick={togglePasswordVisibility}>
-                          {showPassword ? '◎ Hide' : '◉ Show'}
-                      </button>
-                  </div>
-                  <button onClick={handleClick}>{props.request_type}</button>
+                <div>
+                    <input
+                        type={showPassword ? 'text' : 'password'}
+                        value={password}
+                        onChange={handleChange}
+                    />
+                    <button className='box1 button' onClick={togglePasswordVisibility}>
+                        {showPassword ? '◎ Hide' : '◉ Show'}
+                    </button>
+                </div>
+                  <button className='box1 button' onClick={handleClick}>{props.request_type}</button>
                    <AccountCookies Username={Username} Password={password}/>
                    <p className='small-text'>{error_message}</p>
             </div>

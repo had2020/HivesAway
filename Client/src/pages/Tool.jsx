@@ -1,6 +1,11 @@
-import React from 'react';
+import { useEffect } from 'react';
 
-const Tool = () => {
+const Tool = ({onToolPage}) => {
+
+  useEffect(() => {
+    onToolPage();
+  }, []);
+  
   return (
     <div>
       <h1>Tool page!</h1>

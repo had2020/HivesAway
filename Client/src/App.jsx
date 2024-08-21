@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'//Todo change all this later
 import './App.css'
@@ -14,11 +14,10 @@ import Login from './pages/Login';
 import Contact from './pages/contact';
 import Logingui from './pages/logingui';
 import Signupgui from './pages/signupgui';
-import logout from './pages/logout';
+import Logout from './pages/logout';
 
 // components
 import Nav_bar from './components/Nav_bar';
-import Logout from './pages/logout';
 
 function App() {
   // session state
@@ -69,10 +68,10 @@ function App() {
   };
 
 
-  //TODO ADD CURRENT COOKIE FOR LOGIN
+  // vaildate user
   const vaildate_user = () => {
     if (sessionUser1 !== null && sessionPass1 !== null && cookieValue !== null && cookieValue2 !== null) {
-      if (vaildate_user_fields(sessionUser1, sessionPass1) && vaildate_user_fields(cookieValue, cookieValue2)) {
+      if (vaildate_user_fields(sessionUser1, sessionPass1)) {
         setCurrentUser(sessionUser1);
         setCurrentPass(sessionPass1);
         setLogined(true);
@@ -80,16 +79,18 @@ function App() {
         setCurrentUser(cookieValue);
         setCurrentPass(cookieValue2);
         setLogined(true);
+      } else {
+        setLogined(false);
       }
+      
+      callChildMethod();
     }
   };
 
   const vaildate_user_fields = (field1,field2) => {
-    if (field1 === '' || field2 === '') {
-      return false;
-    } else {
-      return true;
-    }
+    const string1 = String(field1);
+    const string2 = String(field2);
+    return string1 !== null && string2 !== null;
   }
 
   useEffect(() => {
@@ -100,15 +101,28 @@ function App() {
   const OnLogOut = () => {
     console.log("logout function updated: ", logined);
     setLogined(false);
+    callChildMethod();
+  }
+
+  const OnToolPageFUNC = () => {
+    grab_account();
+    vaildate_user();
+    console.log("tool function updated: ");
+  }
+
+  const childRef = useRef();
+
+  const callChildMethod = () => {
+    childRef.current.childMethod();
   }
 
   return (
     <>
-      <Nav_bar logined={logined} username={currentuser}/>
+      <Nav_bar logined={logined} username={currentuser} ref={childRef}/>
       <Router>
         <Routes>
           <Route path="/" element={<Home logined={logined}/>} />
-          <Route path="/tool" element={<Tool />} />
+          <Route path="/tool" element={<Tool onToolPage={OnToolPageFUNC} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Not_Found" element={<Not_Found />} />

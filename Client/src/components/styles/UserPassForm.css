@@ -1,26 +1,27 @@
 .box1 {
-   /*font-size: 2vw; !! Has problems scaling children !!
-    width: 50vw; 
-    height: 30vh;  
-    background-color: #333; 
-    border: 1px solid #838383;  
-    padding: 10px;  
-    border-radius: 5px; 
-    box-shadow: 0 2px 5px #0000001a; 
-    margin: 10px auto; 
-    box-sizing: border-box; */
-    border-radius: 5px; 
-    background-color: #333; 
-    border: 1px solid #838383;  
-    margin: 10px auto; 
-}
+    /*font-size: 2vw; !! Has problems scaling children !!
+     width: 50vw; 
+     height: 30vh;  
+     background-color: #333; 
+     border: 1px solid #838383;  
+     padding: 10px;  
+     border-radius: 5px; 
+     box-shadow: 0 2px 5px #0000001a; 
+     margin: 10px auto; 
+     box-sizing: border-box; */
+     border-radius: 5px; 
+     background-color: #333; 
+     border: 1px solid #838383;  
+     margin: 10px auto; 
+ }
+ 
 
 .box1 button {
     width: 100%; 
     margin: 10px 0; 
     padding: 10px;
-    font-size: 1em; 
     box-sizing: border-box; 
+    font-size: inherit;
 }
 
 .box1 button {
@@ -67,3 +68,4 @@
     border: 1px solid #ccc; 
     border-radius: 5px;
 }
+
