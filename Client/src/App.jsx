@@ -36,6 +36,8 @@ function App() {
   // cookies
   const [cookieValue, setCookieValue] = useState('');
   const [cookieValue2, setCookieValue2] = useState('');
+  let cookieUser = null
+  let cookiePass = null
 
   // save current account
   const save_current_account = (data) => {
@@ -44,9 +46,9 @@ function App() {
   }
 
   const grab_account = () => {
-    console.log("grab account")
+    //console.log("grab account")
     account = setAccount(sessionStorage.getItem("account"));
-    console.log("current account: ",let_account);
+    //console.log("current account: ",let_account);
     handleGetCookie();
     grab_current_session_account();
   }
@@ -54,7 +56,7 @@ function App() {
   const grab_current_session_account = () => {
     sessionUser = sessionStorage.getItem("Username");
     sessionPass = sessionStorage.getItem("Password");
-    console.log("Current session: ", sessionUser, sessionPass);
+    //console.log("Current session: ", sessionUser, sessionPass);
     setSessionUser1(sessionUser);
     setSessionPass1(sessionPass);
   }
@@ -64,38 +66,24 @@ function App() {
     setCookieValue(user);
     const pass = Cookies.get('password');
     setCookieValue2(pass);
-    console.log("Current cookie: ", user, pass);
+    //console.log("Current cookie: ", user, pass);
+    cookieUser = user
+    cookiePass = pass
   };
-
-
-  // vaildate user TODO REWORK LOGIC
-  /*const vaildate_user = () => {
-    if (sessionUser1 !== null && sessionPass1 !== null && cookieValue !== null && cookieValue2 !== null) {
-      if (vaildate_user_fields(sessionUser1, sessionPass1)) {
-        setCurrentUser(sessionUser1);
-        setCurrentPass(sessionPass1);
-        setLogined(true);
-      } else if (vaildate_user_fields(cookieValue, cookieValue2)) {
-        setCurrentUser(cookieValue);
-        setCurrentPass(cookieValue2);
-        setLogined(true);
-      } else {
-        setLogined(false);
-      }
-      
-      callChildMethod();
-    }
-  };
-
-  const vaildate_user_fields = (field1,field2) => {
-    const string1 = String(field1);
-    const string2 = String(field2);
-    return string1 !== null && string2 !== null;
-  }
-  */
 
   const vaildate_user = () => {
-    console.log("worked")
+    //console.log("session account:", sessionUser, sessionPass);
+    //console.log("cookie account:", cookieUser, cookiePass);
+    if (typeof cookieUser === 'string') {
+      setCurrentUser(cookieUser)
+      setCurrentPass(cookiePass)
+      setLogined(true);
+    }
+    else if (typeof sessionUser === 'string') {
+      setCurrentUser(sessionUser)
+      setCurrentPass(sessionPass)
+      setLogined(true);
+    }
   }
 
   useEffect(() => {

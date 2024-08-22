@@ -26,7 +26,11 @@ const NavBar = forwardRef((props, ref) => {
       <a href="/contact">Contact</a>
     </div>
     <div>
-      <p className='username'>Welcome, {props.username}!</p>
+      {logined ? (
+      <>
+        <p className='username'>Welcome, {props.username}!</p>
+      </>
+      ) : null}
     </div>
     <div className='rightbutton'>
     {!logined ? (
@@ -35,7 +39,11 @@ const NavBar = forwardRef((props, ref) => {
       <a href="/signupgui">Signup</a>
     </>
     ) : null}
+    {logined ? (
+    <>
       <a className="verticalLine"href="/logout">Logout</a>
+    </>
+    ) : null}
     </div>
   </div>
   );
