@@ -68,8 +68,8 @@ function App() {
   };
 
 
-  // vaildate user
-  const vaildate_user = () => {
+  // vaildate user TODO REWORK LOGIC
+  /*const vaildate_user = () => {
     if (sessionUser1 !== null && sessionPass1 !== null && cookieValue !== null && cookieValue2 !== null) {
       if (vaildate_user_fields(sessionUser1, sessionPass1)) {
         setCurrentUser(sessionUser1);
@@ -91,6 +91,11 @@ function App() {
     const string1 = String(field1);
     const string2 = String(field2);
     return string1 !== null && string2 !== null;
+  }
+  */
+
+  const vaildate_user = () => {
+    console.log("worked")
   }
 
   useEffect(() => {
