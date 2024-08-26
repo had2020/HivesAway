@@ -33,6 +33,7 @@ function App() {
   const [logined, setLogined] = useState(false);
   const [currentpass, setCurrentPass] = useState('');
   const [currentuser, setCurrentUser] = useState('');
+  let logined_status = false;
 
   // cookies
   const [cookieValue, setCookieValue] = useState('');
@@ -79,11 +80,13 @@ function App() {
       setCurrentUser(cookieUser)
       setCurrentPass(cookiePass)
       setLogined(true);
+      logined_status = true
     }
     else if (typeof sessionUser === 'string') {
       setCurrentUser(sessionUser)
       setCurrentPass(sessionPass)
       setLogined(true);
+      logined_status = true
     }
   }
 
@@ -101,7 +104,7 @@ function App() {
   const OnToolPageFUNC = () => {
     grab_account();
     vaildate_user();
-    console.log("tool function updated: ");
+    console.log("tool function updated: ", logined_status);
   }
 
   const childRef = useRef();
@@ -116,9 +119,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home logined={logined}/>} />
-          <Route path="/tool" element={<Tool onToolPage={OnToolPageFUNC} />} />
+          <Route path="/tool" element={<Tool logined_status={logined_status} onToolPage={OnToolPageFUNC} />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login logined={logined}/>} />
+          <Route path="/login" element={<Login />} />
           <Route path="/logingui" element={<Logingui onUplift={save_current_account}/>} />
           <Route path="/signupgui" element={<Signupgui onUplift={save_current_account}/>} />
           <Route path="/logout" element={<Logout OnLogOut={OnLogOut}/>} />

@@ -1,0 +1,17 @@
+.title {
+    text-align: center;
+    background-color: #444;
+    margin-bottom: 10px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    border-radius: 5px; 
+    background-color: #242424; 
+    border: 1px solid #838383;  
+    margin: 10px auto; 
+    text-align: center;
+}

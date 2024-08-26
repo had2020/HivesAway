@@ -4,16 +4,18 @@ import { useEffect } from 'react';
 import Day_Panel from '../components/Day_panel';
 import Daily_Form from '../components/Daily_form';
 
-const Tool = ({onToolPage, logined}) => {
+const Tool = ({onToolPage, logined_status}) => {
 
   useEffect(() => {
+    console.log("logined in: ", logined_status);
     onToolPage();
     validate_login();
   }, []);
   
  const validate_login = () => {
-    if (!logined) {
-      window.location.href = "/waring"; // TODO added route 
+    if (logined_status === false) {
+      console.log("not logined in, status: ", logined_status);
+      //window.location.href = "/waring"; 
     };
   }
 
