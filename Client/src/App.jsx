@@ -117,7 +117,7 @@ function App() {
           <Route path="/" element={<Home logined={logined}/>} />
           <Route path="/tool" element={<Tool onToolPage={OnToolPageFUNC} />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login logined={logined}/>} />
           <Route path="/Not_Found" element={<Not_Found />} />
           <Route path="/logingui" element={<Logingui onUplift={save_current_account}/>} />
           <Route path="/signupgui" element={<Signupgui onUplift={save_current_account}/>} />

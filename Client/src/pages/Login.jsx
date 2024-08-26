@@ -3,7 +3,6 @@ import React from 'react';
 // Styling
 import './styles/Login.css';
 
-// Todo add some kind of save login for the same device.
 const Login = () => {
   return (
     <div>
