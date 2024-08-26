@@ -18,6 +18,7 @@ import Logout from './pages/logout';
 
 // components
 import Nav_bar from './components/Nav_bar';
+import Waring from './pages/waring';
 
 function App() {
   // session state
@@ -118,10 +119,11 @@ function App() {
           <Route path="/tool" element={<Tool onToolPage={OnToolPageFUNC} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login logined={logined}/>} />
-          <Route path="/Not_Found" element={<Not_Found />} />
           <Route path="/logingui" element={<Logingui onUplift={save_current_account}/>} />
           <Route path="/signupgui" element={<Signupgui onUplift={save_current_account}/>} />
           <Route path="/logout" element={<Logout OnLogOut={OnLogOut}/>} />
+          <Route path="/waring" element={<Waring />} />
+          <Route path="*" element={<Not_Found />} />
         </Routes>
       </Router>
     </>

@@ -8,10 +8,10 @@ const Tool = ({onToolPage, logined}) => {
 
   useEffect(() => {
     onToolPage();
-    
+    validate_login();
   }, []);
   
- const_validate_login = () => {
+ const validate_login = () => {
     if (!logined) {
       window.location.href = "/waring"; // TODO added route 
     };
