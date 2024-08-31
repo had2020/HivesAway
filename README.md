@@ -2,6 +2,12 @@
 
 HivesAway empowers you to track your food allergies and potential hive triggers, aiding in informed dietary decisions and improved allergy management. Easily record your meals and any resulting hives, generating insights into possible correlations.
 
+
+
+https://github.com/user-attachments/assets/0a685a94-6538-4451-9f02-153095d9071a
+
+
+
 ## User Experience First
 
 HivesAway prioritizes a clean and uncluttered user interface (UI) built with React and Vite for a seamless experience. It's designed with these principles in mind:
