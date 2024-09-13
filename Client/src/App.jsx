@@ -119,7 +119,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home logined={logined}/>} />
-          <Route path="/tool" element={<Tool logined_status={logined_status} onToolPage={OnToolPageFUNC} />} />
+          <Route path="/tool" element={<Tool logined_status={logined} onToolPage={OnToolPageFUNC} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logingui" element={<Logingui onUplift={save_current_account}/>} />
