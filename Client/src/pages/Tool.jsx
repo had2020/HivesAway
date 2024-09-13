@@ -15,7 +15,7 @@ const Tool = ({onToolPage, logined_status}) => {
  const validate_login = () => {
     if (logined_status === false) {
       console.log("not logined in, status: ", logined_status);
-      //window.location.href = "/waring"; 
+      window.location.href = "/waring";   
     };
   }
 
